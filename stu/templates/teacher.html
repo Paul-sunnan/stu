@@ -1,0 +1,48 @@
+{% extends 'index.html'%}
+{% block title%}老师列表{% endblock %}
+{% block info %} 
+	<div>
+		<form action="/addinfo/" method="post">
+			 {% csrf_token %}
+			<p>老师姓名：
+				<input id="tea_info" type="text" name="teacher_name" onfocus="this.value" value="老师姓名">
+				<button type="submit">提交信息</button>
+			</p>		
+		</form>
+	</div>
+	<div>
+		<table class="table table-hover  ">
+			<tr>
+				<th>id</th>
+				<th>老师姓名</th>
+			</tr>
+			{%for temp in teacherInfo%}
+			<tr>
+				<th>{{temp.id}}</th>
+				<th>{{temp.name}}</th>
+			</tr>
+			{%endfor%}
+		</table>
+	</div>
+	<script type="text/javascript">
+		t=document.getElementById('tea_info');
+		if (t.value==t.defaultValue) {
+			t.style.color='#aaa';
+		}else{
+			t.style.color="#000"
+		}
+		t.onfocus=function(){
+			if(this.value==this.defaultValue){
+				this.value='';
+				this.style.color="#000"
+			};
+		};
+		t.onblur=function(){
+			if(this.value==''){
+				this.value=this.defaultValue;
+				this.style.color="#aaa";
+			};
+		};
+	</script>
+
+{% endblock %}

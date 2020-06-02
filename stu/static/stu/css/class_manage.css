@@ -1,0 +1,103 @@
+/*焦点汇聚时链接设置手型*/
+* a{
+	cursor: pointer;
+	text-decoration: none;
+}
+/*设置悬浮框的背景灰，并且防止鼠标点击原内容*/
+.div1{
+	display:none;
+	position : fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: black;
+	opacity: 0.5;
+	z-index: 99;
+}
+/*设置悬浮框里的对话框*/
+.div2{
+	display:none;
+	position: fixed;
+	left: 40%;		
+	top: 40%;
+	background-color: white;
+	z-index: 100;
+	height: 200px;
+	width: 270px;
+	opacity: 0.8;
+	z-index: 0.4;
+}
+.div3{
+	display:none;
+}
+.ajax_edit{
+	display:none;
+	position: fixed;
+	left: 40%;		
+	top: 40%;
+	background-color: white;
+	z-index: 100;
+	height: 200px;
+	width: 270px;
+	opacity: 0.8;
+	z-index: 0.4;
+}
+body{
+	margin: 0;
+}
+.head-line{
+	height: 50px;
+	background-color: #339999;
+	min-width: 900px;
+}
+.menu-line{
+	width: 200px;
+	background-color: #cccccc;
+	position: absolute;
+	left: 0;
+	top: 50px;
+	bottom: 0;
+}
+/*设置父选项*/
+body .nav-title>a{
+	display: block;
+	font-size: 16px;
+	text-decoration: none;			/*去掉下划线*/
+}
+/*设置子选项*/
+body .nav-content>a{
+	display: block;
+	background-color: #999999;		/*背景色*/
+	text-decoration: none;			/*去掉下划线*/
+	color: white;
+	text-align: center;				/*水平居中*/
+	font-size: 13px;
+}
+/*设置鼠标放在子选项时的样式*/
+body .nav-content>a:hover{
+	display: block;
+	background-color: #666666;		/*背景色*/
+	text-decoration: none;			/*去掉下划线*/
+	color: white;
+	text-align: center;				/*水平居中*/
+	font-size: 14px;
+}
+
+.content-line{
+	background-color: white;
+	position: absolute;
+	left: 200px;
+	bottom: 0;
+	top: 50px;
+	right: 0;
+	overflow: scroll;	
+}
+body .menu-line a{
+	display:block;
+	padding: 10px 10px;
+	border-bottom: 1px solid #dddddd;
+}
+* body .content-line table{
+	margin-right: 30px;
+}

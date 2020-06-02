@@ -1,0 +1,124 @@
+
+{% extends 'index.html'%}
+{% block title%}修改信息{% endblock %}
+
+{% block info %} 
+
+<div class="submit_info">
+	<div>
+		<h1><span><big>信息提交</big></span></h1>
+		<a href="javascript:show_window()" id="widnow_display" >悬浮框提交信息</a>
+	</div>
+
+
+</div>
+		<!-- 遮盖层 -->
+	<div class='div1'>
+
+	</div>
+
+	<!-- 对话框层 -->
+	<div class='div2'>
+		<p>
+			
+				<input type="text" name="class_name" id="input1">
+				<button id="window_upload" onclick="AjaxSend()">提交</button>
+			
+		</p>		
+	</div>
+	<!-- <script type="text/javascript">
+		$(document).ready(function(){
+			$("#window_upload").click(function(){
+				$('.div1').hide();
+				$('.div2').hide();
+			});
+		});
+	</script>
+ 	-->
+	<!-- 打开悬浮框 -->
+	<script type="text/javascript">
+	// <!-- <!-- 三个输入框的默认信息编写 --> -->
+
+			// s=document.getElementById('stu_info');
+			// if (s.value==s.defaultValue) {
+			// 	s.style.color='#aaa';
+			// }else{
+			// 	s.style.color="#000"
+			// }
+			// s.onfocus=function(){
+			// 	if(this.value==this.defaultValue){
+			// 		this.value='';
+			// 		this.style.color="#000"
+			// 	};
+			// };
+			// s.onblur=function(){
+			// 	if(this.value==''){
+			// 		this.value=this.defaultValue;
+			// 		this.style.color="#aaa";
+			// 	};
+			// };
+
+			t=document.getElementById('tea_info');
+			if (t.value==t.defaultValue) {
+				t.style.color='#aaa';
+			}else{
+				t.style.color="#000"
+			}
+			t.onfocus=function(){
+				if(this.value==this.defaultValue){
+					this.value='';
+					this.style.color="#000"
+				};
+			};
+			t.onblur=function(){
+				if(this.value==''){
+					this.value=this.defaultValue;
+					this.style.color="#aaa";
+				};
+			};
+
+			c=document.getElementById('cla_info');
+			if (c.value==c.defaultValue) {
+				c.style.color='#aaa';
+			}else{
+				c.style.color="#000"
+			}
+			c.onfocus=function(){
+				if(this.value==this.defaultValue){
+					this.value='';
+					this.style.color="#000"
+				};
+			};
+			c.onblur=function(){
+				if(this.value==''){
+					this.value=this.defaultValue;
+					this.style.color="#aaa";
+				};
+			};
+		// 分隔符————————————————————————————————————————————————————————————————————————————————————
+		function AjaxSend(){
+			alert($('#input1').val())
+			$.ajax({
+				url:'/addinfo_window/',
+				type:'post',
+				data:{'class_name': $('#input1').val()},
+				success:function(data){
+					alert('haode ')
+				},
+
+			})
+		};
+
+		function show_window(){
+			divset1 = document.getElementsByClassName('div1');
+			for (var i = 0; i<divset1.length;i++) {
+        		divset1[i].style.display="block";
+        	};
+        	divset2 = document.getElementsByClassName('div2');
+			for (var i = 0; i<divset2.length;i++) {
+        		divset2[i].style.display="block";
+        	};
+		};
+	</script>
+
+{% endblock %}

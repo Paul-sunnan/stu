@@ -1,0 +1,22 @@
+{% extends 'index.html'%}
+{% block title%}登陆{% endblock %}
+
+{% block info %} 
+	<H1>用户登陆</H1>
+	<form method="POST" action="/login/">		
+		{{errorinfo}}
+		{% csrf_token %}
+		<span>
+			用户名：
+			<input type="text" name="username">
+		</span>
+		<br>
+		<span>
+			密码：
+			<input type="text" name="passwd">
+		</span>
+		<br>
+		<button>登陆提交</button>
+	</form>
+	<a href="/signin">注册</a>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'index.html'%}
+{% block title%}班级列表{% endblock %}
+
+{% block info %} 
+<div>
+	<form action="/class/" method="post">
+		{% csrf_token %}
+		<p>班级名称：
+			<input id="cla_info" type="text" name="class_name" onfocus="this.value" value="班级名称">
+			<button type="submit">提交输入</button>
+		</p>
+	</form>
+</div>
+<br>
+<div>
+	<table class="table table-hover  ">
+		<tr>
+			<th>id</th>
+			<th>班级名称</th>
+			<th>操作</th>
+		</tr>
+
+		{% for temp in classInfo %}
+		<tr>
+			<th id="id_{{temp.id}}">{{temp.id}}</th>
+			<th>{{temp.name}}</th>
+			<th>
+				<a class="glyphicon glyphicon-pencil" onclick="show_window(this);">编辑</a>
+				<a class="glyphicon glyphicon-remove" id="{{temp.id}}"  onclick="javascript:AjaxDel(this);" >删除</a>
+			</th>		
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+<script type="text/javascript">
+	c=document.getElementById('cla_info');
+		if (c.value==c.defaultValue) {
+			c.style.color='#aaa';
+		}else{
+			c.style.color="#000"
+		}
+		c.onfocus=function(){
+			if(this.value==this.defaultValue){
+				this.value='';
+				this.style.color="#000"
+			};
+		};
+		c.onblur=function(){
+			if(this.value==''){
+				this.value=this.defaultValue;
+				this.style.color="#aaa";
+			};
+		};
+</script>
+{% endblock %}

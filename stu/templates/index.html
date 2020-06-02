@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}学生信息管理系统{% endblock %}</title>
+	<script type="text/javascript" src="{% static 'stu/javascript/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'stu/javascript/class_manage.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'stu/css/class_manage.css' %}">
+	<link rel="shortcut icon" href="{% static 'stu/logo.ico' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'stu/plugin/bootstrap-3.3.7-dist/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'stu/plugin/font-awesome-4.7.0/css/font-awesome.css' %}">
+
+<!-- 	<script type="text/javascript" src="{% static 'javascript/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'javascript/class_manage.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/class_manage.css' %}">
+	<link rel="shortcut icon" href="{% static 'logo.ico' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugin/bootstrap-3.3.7-dist/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugin/font-awesome-4.7.0/css/font-awesome.css' %}"> -->
+
+
+
+	<style type="text/css">
+		li {list-style-type:none;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="head-line">
+	</div>
+
+	<div class="menu-line">
+		<div class="nav">
+			<div class="nav-menu">
+				<div class="nav-title">
+					<a  class="menu-first" role="button" href="#"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;学生</a>
+				</div>
+
+				<div class="nav-content">
+					<a href="/student/">查看添加学生信息</a>
+					<a href="#">操作学生班级划分</a>
+				</div>
+			</div>
+
+
+			<div class="nav-menu">
+				<div class="nav-title">
+					<a  class="" role="button" href="/class/"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;班级</a>
+				</div>
+
+				<div class="nav-content">
+					<a href="/class/">查看添加班级信息</a>
+					<a href="#">操作学生班级划分</a>
+					<a href="/tea_cla/">任课班级划分</a>
+				</div>
+			</div>
+
+			
+			<div class="nav-menu">
+				<div class="nav-title">
+					<a class="" role="button" href="/addinfo/"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;老师</a>
+				</div>
+
+				<div class="nav-content">
+					<a href="/teacher/">查看添加老师信息</a>
+					<a href="/tea_cla/">任课班级划分</a>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<div class="content-line" >
+		<ol class="breadcrumb" style="margin-left:0 ">
+		  	<li><a href="/">首页</a></li>
+		  	<li class="active">班级信息</li>
+		</ol>
+		<div style="margin-left: 30px;"  >
+		{% block info %}
+			<h3 style="margin-left: 400px">欢迎进入学生班级管理系统</h3>
+			<p>{{user}},{{rightinfo}}{{errorinfo}}</p>
+			<a href="/login">登陆界面</a>
+			<a href="/signin">注册界面</a>
+		{% endblock %}
+		</div>
+	</div>
+
+	<!-- 遮罩层 -->
+	<div class="div1"></div>
+	<!-- ajax表单提交 -->
+	<div class="ajax_edit">
+		<p>编辑信息</p>
+		<span>
+			<a id="id_cur"></a>
+			<input id="name_edit" type="text" >
+		</span>
+		<br>
+		<input type="button" value="提交" onclick="AjaxEdit();" >
+		<input type="button" value="取消" onclick="hide_window();">
+	</div>
+</body>
+</html>

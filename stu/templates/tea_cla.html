@@ -1,0 +1,39 @@
+{%extends 'index.html'%}
+{%block title%}安排老师任课班级{%endblock%}
+{%block info%}
+	<div>
+		<form action="/tea-cla/" method="POST">
+			 {% csrf_token %}
+			<h1>安排授课老师班级信息</h1>
+			<p>选择授课老师：
+				<select name="teachername">
+					{%for temp in teacherInfo%}
+						<option value="{{temp.name}}">{{temp.name}}</option>
+					{%endfor%}
+				</select>
+			</p>
+			<p>选择授课班级：
+				<select name="classname">
+					{%for temp in classInfo%}
+						<option value="{{temp.name}}">{{temp.name}}</option>
+					{%endfor%}
+				</select>
+			</p>
+			<button type="submit">提交输入</button>
+		</form>
+		<p>已安排授课信息:</p>
+		<table class='table table-hoverd table-hover table-bordered'>
+			<tr>
+				<th>任课老师</th>
+				<th>任课班级</th>
+			</tr>
+			
+			{%for temp in teacher_class_all%}
+			<tr>
+				<th>{{temp.teacherID.name}}</th>
+				<th>{{temp.classID.name}}</th>
+			</tr>
+			{%endfor%}				
+		</table>
+	</div>
+{%endblock%}

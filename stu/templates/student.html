@@ -1,0 +1,37 @@
+{%extends 'index.html'%}
+{%block title%}学生信息{%endblock%}
+{%block info%}
+
+<div>
+	<div>
+		<form action="/student/" method="POST">
+			 {% csrf_token %}
+			<h1>学生信息录入</h1>
+			<input type="text" name="stu_name">
+			<select name="class_id">
+				{%for temp in classInfo%}
+				<option value="{{temp.id}}">{{temp.name}}</option>
+				{%endfor%}
+			</select>
+			<button type="submit">确认提交</button>
+		</form>
+	</div>
+	<div>
+		<table class='table table-hoverd table-hover table-bordered'>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>class</th>
+			</tr>
+			{%for temp in studentInfo%}
+			<tr>
+				<th>{{temp.sid}}</th>
+				<th>{{temp.name}}</th>
+				<th>{{temp.classID.name}}</th>
+			</tr>
+			{%endfor%}
+		</table>
+	</div>
+</div>
+
+{%endblock%}
